@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "SUSE", sans-serif;
+}
+main{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    background: rgb(67,136,78);
+    background: linear-gradient(0deg, rgba(67,136,78,1) 0%, rgba(42,76,11,0.7217480742296919) 100%);
+}
+/*--------------------------------------------------------------LEFT SECTION-------------------------------------------*/
+.leftSection{
+    margin-left: 20px;
+    width: 20vw;
+    height: 90%;
+    border: 1px solid black;
+    border-radius: 30px;
+    background: rgb(180,226,187);
+    background: linear-gradient(0deg, rgba(180,226,187,0.7693671218487395) 0%, rgba(230,243,218,0.8646052170868348) 100%);
+    box-shadow: 7px 6px 24px 1px rgba(0,0,0,0.75);
+    padding: 20px;
+}
+.leftSection>div{
+    width: 100%;
+}
+.leftSection>div:nth-child(2){
+    padding-bottom: 15px;
+    border-bottom:1px solid black ;
+}
+.leftSection>div>p{
+    font-size: 20px;
+}
+.leftSection>div>span{
+    font-size: 25px;
+    color: darkslategray;
+}
+.upgrade>div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+.upgrade>div>img{
+    width: 40px;
+    height: 40px;
+}
+.upgrade>div>p{
+    margin-left: 10px;
+   font-size: 20px;
+}
+.upgrade>div>a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: darkslategray;
+    font-size: 20px;
+    font-weight: bolder;
+    border: 1px solid darkslategray;
+    border-radius: 30px;
+    padding: 6px;
+}
+.money{
+    margin-left: 10px;
+    width: 25px;
+    height: 25px;
+}
+/*--------------------------------------------------------------MIDDLE SECTION-------------------------------------------*/
+.middleSection{
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    height: 90%;
+}
+#coin{
+    border-radius: 180px;
+    box-shadow: 18px 18px 20px 0 rgba(13,12,11,0.5);
+    margin: 0 auto;
+    width: 25vw;
+    height: 25vw;
+}
+#scoreCoin{
+    margin: 10vh auto 40px auto;
+    font-size: 45px;
+    color: lightgray;
+    font-weight: bold;
+}

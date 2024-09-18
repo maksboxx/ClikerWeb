@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cliker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+    <section class="leftSection">
+        <div>
+        <p>Coin per Tap:</p>
+        <span id="coinPerTap">0</span>
+        </div>
+        <div>
+        <p>Coin per Sec:</p>
+        <span id="coinPerSec">0</span>
+        </div>
+        <div class="upgrade">
+            <div class="cursorUpgrade">
+                <img src="img/cursor.png" alt="cursor">
+                <p>Cursorio</p>
+                <a href="#" id="cursorU">100</a>
+            </div>
+            <div class="cursorUpgrade">
+                <img src="img/computer.png" alt="cursor">
+                <p>Automatic</p>
+                <a href="#" id="computer">100</a>
+            </div>
+        </div>
+        <p id="reset">Reset</p>
+    </section>
+    <div class="middleSection">
+        <p id="scoreCoin"></p>
+        <img id="coin" src="img/coin.png" alt="coinClick">
+    </div>
+    <aside class="rightSection">
+    </aside>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
