@@ -39,21 +39,21 @@ main{
     font-size: 25px;
     color: darkslategray;
 }
-.upgrade>div{
+.upgrades>div{
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 10px 0;
 }
-.upgrade>div>img{
+.upgrades>div>img{
     width: 40px;
     height: 40px;
 }
-.upgrade>div>p{
+.upgrades>div>p{
     margin-left: 10px;
    font-size: 20px;
 }
-.upgrade>div>a{
+.upgrades>div>a{
     display: flex;
     align-items: center;
     text-decoration: none;
