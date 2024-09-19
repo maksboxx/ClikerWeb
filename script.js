@@ -7,7 +7,9 @@ const reset=document.getElementById('reset')
 
 let cursorUButton = document.getElementById('cursorU')
 let shovelUButton = document.getElementById('shovelU')
-let computerUBlock=document.getElementById('computerU')
+let computerUButton=document.getElementById('computerU')
+let phoneUButton=document.getElementById('phoneU')
+let appleUButton=document.getElementById('appleU')
 
 
 
@@ -41,6 +43,9 @@ function updUpgrades() {
         // Ключ существует
         cursorUButton.innerText=upgrades[0].costUpgrade
         shovelUButton.innerText=upgrades[1].costUpgrade
+        computerUButton.innerText=upgrades[2].costUpgrade
+        phoneUButton.innerText=upgrades[3].costUpgrade
+        appleUButton.innerText=upgrades[4].costUpgrade
     } else {
         let upgradeList=[
             {
@@ -101,12 +106,12 @@ updProgress()
 updUpgrades()
 
 // Тап по монете
-
 coin.onclick=function (){
     user.coinsScore+=user.coinPerTap
     coinsScoreBlock.innerText=user.coinsScore
     localStorage.setItem('userInfo',JSON.stringify(user))
 }
+
 // Функция для обновления всех значений
 function upgradeParams() {
     coinsScoreBlock.innerText=user.coinsScore
@@ -118,48 +123,38 @@ function saveToLocalStorage(){
     localStorage.setItem('userInfo',JSON.stringify(user))
     localStorage.setItem('upgrades',JSON.stringify(upgrades))
 }
-
+function buyUpgrades(i){
+    if (user.coinsScore>=upgrades[i].costUpgrade){
+        user.coinsScore=user.coinsScore-upgrades[i].costUpgrade // отнимаем монеты за улучшение
+        user.coinPerTap=user.coinPerTap+upgrades[i].coinPerTapAdd // добавляем монет за тап
+        user.coinPerSec=user.coinPerSec+upgrades[i].coinPerSecAdd
+        upgrades[i].costUpgrade = Math.ceil(upgrades[i].costUpgrade * upgrades[i].coefficient);// увеличиваем сумму за улучшение
+        cursorUButton.innerText=upgrades[i].costUpgrade
+        upgrades[i].lvlUpg++
+        upgradeParams()
+        saveToLocalStorage()
+    }
+    else alert('Not Enough Money')
+}
 // 1й апдейт - курсор
 cursorUButton.onclick=function(){
-    if (user.coinsScore>=upgrades[0].costUpgrade){
-        user.coinsScore=user.coinsScore-upgrades[0].costUpgrade // отнимаем монеты за улучшение
-        user.coinPerTap=user.coinPerTap+upgrades[0].coinPerTapAdd // добавляем монет за тап
-        user.coinPerSec=user.coinPerSec+upgrades[0].coinPerSecAdd
-        upgrades[0].costUpgrade = Math.ceil(upgrades[0].costUpgrade * upgrades[0].coefficient);// увеличиваем сумму за улучшение
-        cursorUButton.innerText=upgrades[0].costUpgrade
-        upgradeParams()
-        saveToLocalStorage()
-
-    }
-    else alert('Not Enough Money')
+    buyUpgrades(0)
 }
-
 // 2й апдейт - лопата
 shovelUButton.onclick=function () {
-    if (user.coinsScore>=upgrades[1].costUpgrade){
-        user.coinsScore=user.coinsScore-upgrades[1].costUpgrade
-        user.coinPerTap=user.coinPerTap+upgrades[1].coinPerTapAdd
-        user.coinPerSec=user.coinPerSec+upgrades[1].coinPerSecAdd
-        upgrades[1].costUpgrade = Math.ceil(upgrades[1].costUpgrade * upgrades[1].coefficient);
-        shovelUButton.innerText=upgrades[1].costUpgrade
-        upgradeParams()
-        saveToLocalStorage()
-    }
-    else alert('Not Enough Money')
+    buyUpgrades(1)
 }
-computerUBlock.onclick=function (){
-    if (user.coinsScore>=upgrades[2].costUpgrade){
-        user.coinsScore=user.coinsScore-upgrades[2].costUpgrade
-        user.coinPerTap=user.coinPerTap+upgrades[2].coinPerTapAdd
-        user.coinPerSec=user.coinPerSec+upgrades[2].coinPerSecAdd
-        upgrades[2].costUpgrade = Math.ceil(upgrades[2].costUpgrade * upgrades[2].coefficient);
-        computerUBlock.innerText=upgrades[2].costUpgrade
-        upgradeParams()
-        saveToLocalStorage()
+// 3й апдейт - компьютер
+computerUButton.onclick=function (){
+    buyUpgrades(2)
+}
+phoneUButton.onclick=function (){
+    buyUpgrades(3)
+}
+appleUButton.onclick=function (){
+    buyUpgrades(4)
+}
 
-    }
-    else alert('Not Enough Money')
-}
 
 // Функция для монет в секунду
 function addCoinsPerSec() {
